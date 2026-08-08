@@ -6,8 +6,8 @@ const videoSource = document.getElementById('videoSource');
 
 // Lista con la ruta de tus dos partes
 const partesVideo = [
-    'video/bannerpieza1.mp4',
-    'video/bannerpieza2.mp4'
+    'video/banner1.mp4',
+    'video/banner2.mp4'
 ];
 
 let indiceActual = 0;
