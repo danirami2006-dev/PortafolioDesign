@@ -10,36 +10,56 @@ body {
     margin: 0;
 }
 
-    .banner-principal {
+    /* CONTENEDOR PADRE - Tamaño grande y destacado */
+.banner-principal {
     position: relative;
-    width: 90vw;           /* Ancho abrumador y grande en pantalla */
-    max-width: 1200px;     /* Tamaño máximo excelente para monitores */
-    margin: 80px auto;     /* Espacio arriba y abajo para que no choque con el header */
+    width: 90vw;           /* Ancho grande en pantalla */
+    max-width: 1200px;     /* Tamaño máximo amplio */
+    margin: 80px auto;     /* Centrado con espacio arriba y abajo */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* MARCO DEL VIDEO CENTRAL - Se ajusta al video, NO lo corta */
+/* MARCO DEL VIDEO CENTRAL - Mantiene la proporción real del video gigante */
 .contenedor-video-banner {
     position: relative;
     width: 100%;
-    /* ¡OJO! NO le ponemos 'height' fija para que el video no se recorte jamás */
+    /* Dejamoss que el video mande en el alto para que NUNCA se recorte */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
     border-radius: 4px;
 }
 
+/* ESTILOS BASE DE LOS VIDEOS (Ambos se apilan en el mismo espacio) */
 .video-destacado {
     width: 100%;
-    height: auto;         /* El video mantendrá su tamaño 100% original sin recortes */
+    height: auto;         /* Mantiene el tamaño original sin recortes */
     display: block;
+    transition: opacity 0.3s ease; /* Transición suave sin saltos ni parpadeos */
+}
+
+/* ESTADO 1: VIDEO VISIBLE */
+.video-activo {
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+
+/* ESTADO 2: VIDEO OCULTO EN SEGUNDO PLANO (Cargado pero invisible) */
+.video-oculto {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* ETIQUETAS PNGs A LOS COSTADOS Y SUPERPUESTAS */
 .png-superpuesto {
     position: absolute;
-    z-index: 20;          /* Siempre por encima del video */
-    height: 100%;         /* Se adaptan a la altura real que tenga el video */
+    z-index: 20;          /* Siempre por encima de ambos videos */
+    height: 100%;         /* Se adapta a la altura del video gigante */
     max-height: 500px;
     width: auto;
     filter: drop-shadow(6px 6px 12px rgba(0, 0, 0, 0.5));
@@ -47,12 +67,12 @@ body {
 
 /* 1. PORTAFOLIO (Costado Izquierdo - Desplazado hacia Arriba) */
 .png-portafolio {
-    left: -35px;          /* Sale un poco del video hacia la izquierda */
-    top: -30px;           /* Se eleva hacia arriba tal cual tu boceto */
+    left: -35px;          /* Abraza el marco del video por la izquierda */
+    top: -30px;           /* Se eleva hacia arriba */
 }
 
 /* 2. DISEÑO (Costado Derecho - Desplazado hacia Abajo) */
 .png-diseno {
-    right: -35px;         /* Sale un poco del video hacia la derecha */
-    bottom: -30px;        /* Se baja un poco hacia abajo */
+    right: -35px;         /* Abraza el marco del video por la derecha */
+    bottom: -30px;        /* Se desplaza hacia abajo */
 }
