@@ -18,12 +18,17 @@
     <img src="img/dis.png" alt="Diseño" class="png-superpuesto png-diseno">
 
     <!-- CONTENEDOR DEL VIDEO CENTRAL -->
-    <div class="contenedor-video-banner">
-        <video id="videoBanner" autoplay muted playsinline class="video-destacado">
-            <source id="videoSource" src="video/banner1.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-        </video>
-    </div>
+   <div class="contenedor-video-banner">
+    <!-- Video 1: Empieza visible -->
+    <video id="video1" autoplay muted playsinline class="video-destacado video-activo">
+        <source src="video/bannerpieza1.mp4" type="video/mp4">
+    </video>
+
+    <!-- Video 2: Oculto inicialmente, pero ya cargado -->
+    <video id="video2" muted playsinline class="video-destacado video-oculto">
+        <source src="video/bannerpieza2.mp4" type="video/mp4">
+    </video>
+</div>
 
   
 </section>
