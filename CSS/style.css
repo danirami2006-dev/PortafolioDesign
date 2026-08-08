@@ -9,4 +9,50 @@ body {
     padding: 40px; 
     margin: 0;
 }
+.banner-principal {
+    position: relative; /* Base para posicionar las imágenes */
+    width: 100%;
+    max-width: 900px;
+    margin: 80px auto; /* Margen para dar espacio a que sobresalgan arriba y abajo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/* MARCO DEL VIDEO CENTRAL */
+.contenedor-video-banner {
+    position: relative;
+    z-index: 1; /* El video queda en la capa base */
+    width: 100%;
+    max-width: 750px;
+    height: 420px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.video-destacado {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RECTÁNGULOS PNG (AMBOS POR ENCIMA DEL VIDEO) */
+.png-superpuesto {
+    position: absolute;
+    z-index: 20; /* Fuerza a estar por ENCIMA del video */
+    height: 380px; /* Altura de tus rectángulos */
+    width: auto;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* 1. PORTAFOLIO (Izquierda - Arriba) */
+.png-portafolio {
+    left: 20px; /* Distancia desde la izquierda */
+    top: -40px; /* Sobresale hacia arriba */
+}
+
+/* 2. DISEÑO (Derecha - Abajo) */
+.png-diseno {
+    right: 20px; /* Distancia desde la derecha */
+    bottom: -40px; /* Sobresale hacia abajo */
+}
