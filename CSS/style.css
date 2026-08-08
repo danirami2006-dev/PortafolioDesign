@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 body {
+ background-image: url('../img/fondo.jpg'); 
+    background-size: cover;         
+    background-position: center;     
+    background-attachment: fixed;   
+    background-repeat: no-repeat;   
+    font-family: sans-serif;
+    padding: 40px; 
+    margin: 0;
+}
+
     .banner-principal {
     position: relative;
     width: 90vw;           /* Ancho abrumador y grande en pantalla */
