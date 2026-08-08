@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ilustraciones | Portafolio</title>
-     <link rel="icon" type="image/x-icon" href="img/icono.ico">
-    <!-- Vinculamos tu CSS (asegúrate de que la ruta coincida con tu carpeta) -->
+    <link rel="icon" type="image/x-icon" href="img/icono.ico"> 
+    <!-- Vinculamos tu CSS -->
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -17,8 +17,30 @@
 
     <main class="contenedor-galeria">
         <h1>Píezas gráficas</h1>
-        <!-- Aquí irán tus imágenes de ilustraciones -->
+        
+        <!-- BANNER PRINCIPAL (VIDEO + LATERALES) -->
+       <section class="banner-principal">
+    
+    <!-- PNG IZQUIERDO: PORTAFOLIO -->
+    <img src="img/por.png" alt="Portafolio" class="png-superpuesto png-portafolio">
+    <img src="img/dis.png" alt="Diseño" class="png-superpuesto png-diseno">
+
+    <!-- CONTENEDOR DEL VIDEO CENTRAL -->
+    <div class="contenedor-video-banner">
+        <video id="videoBanner" autoplay muted playsinline class="video-destacado">
+            <source id="videoSource" src="videos/banner1.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+    </div>
+
+  
+</section>
+
+        <!-- Aquí irán tus imágenes de ilustraciones más abajo -->
     </main>
+
+    <!-- Conexión con tu archivo JavaScript para que cambie los videos -->
+    <script src="JS/script.js"></script>
 
 </body>
 </html>
