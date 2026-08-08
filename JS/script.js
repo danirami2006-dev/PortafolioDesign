@@ -1,28 +1,31 @@
 // ==========================================
 // BUCLE CONTINUO PARA VIDEOS DIVIDIDOS
 // ==========================================
-const videoElement = document.getElementById('videoBanner');
-const videoSource = document.getElementById('videoSource');
+const v1 = document.getElementById('video1');
+const v2 = document.getElementById('video2');
 
-// Lista con la ruta de tus dos partes
-const partesVideo = [
-    'video/banner1.mp4',
-    'video/banner2.mp4'
-];
-
-let indiceActual = 0;
-
-if (videoElement) {
-    // Escuchar el evento 'ended' (cuando el video actual termina)
-    videoElement.addEventListener('ended', function() {
-        // Pasa al siguiente video de la lista (0 -> 1 -> 0 -> 1...)
-        indiceActual = (indiceActual + 1) % partesVideo.length;
+if (v1 && v2) {
+    // Cuando termina el Video 1 -> Reproduce el 2 y oculta el 1
+    v1.addEventListener('ended', function() {
+        v2.currentTime = 0; // Reinicia el video 2 al inicio
+        v2.play();
         
-        // Cambia la fuente del video
-        videoSource.src = partesVideo[indiceActual];
+        v2.classList.remove('video-oculto');
+        v2.classList.add('video-activo');
         
-        // Carga y reproduce la nueva parte automáticamente
-        videoElement.load();
-        videoElement.play();
+        v1.classList.remove('video-activo');
+        v1.classList.add('video-oculto');
+    });
+
+    // Cuando termina el Video 2 -> Reproduce el 1 y oculta el 2
+    v2.addEventListener('ended', function() {
+        v1.currentTime = 0; // Reinicia el video 1 al inicio
+        v1.play();
+        
+        v1.classList.remove('video-oculto');
+        v1.classList.add('video-activo');
+        
+        v2.classList.remove('video-activo');
+        v2.classList.add('video-oculto');
     });
 }
