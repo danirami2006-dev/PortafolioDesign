@@ -116,22 +116,46 @@ body {
 }
 
 /* Columna Derecha: Cuadro de texto */
-.columna-texto-conoceme {
-    flex: 1.2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenedor-cuadro-texto {
-    position: relative;
+/* Contenido de texto centrado y estilizado con Bebas Neue */
+.contenido-texto-conoceme {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 650px;
+    height: 100%;
+    padding: 40px 50px;           /* Espaciado uniforme en los 4 bordes */
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;      /* Centrado vertical */
+    align-items: center;          /* Centrado horizontal de los bloques */
+    text-align: center;           /* Alineación de texto centrada */
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif; /* Tipografía Bebas Neue */
+    letter-spacing: 1px;          /* Espaciado para mejorar legibilidad */
 }
 
+/* Título CONÓCEME */
+.contenido-texto-conoceme h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;              /* Tamaño grande e impactante para Bebas Neue */
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Párrafo descriptivo */
+.contenido-texto-conoceme p {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem;           /* Tamaño más amplio para que Bebas Neue llene bien el espacio */
+    line-height: 1.25;            /* Interlineado ajustado para fuentes Display */
+    margin: 0;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
 /* Imagen de fondo del cuadro */
 .imagen-cuadro-fondo {
     width: 100%;
