@@ -115,5 +115,34 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizarCarrusel();
     });
 
+    document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.video-item');
+    const btnPrev = document.getElementById('btnVideoPrev');
+    const btnNext = document.getElementById('btnVideoNext');
+    let videoIndex = 0;
+
+    function cambiarVideo(nuevoIndex) {
+        // Pausar el video actual
+        videos[videoIndex].pause();
+        videos[videoIndex].classList.remove('active');
+
+        // Actualizar índice
+        videoIndex = nuevoIndex;
+
+        // Activar el nuevo video
+        videos[videoIndex].classList.add('active');
+    }
+
+    btnPrev.addEventListener('click', () => {
+        let nuevo = (videoIndex - 1 + videos.length) % videos.length;
+        cambiarVideo(nuevo);
+    });
+
+    btnNext.addEventListener('click', () => {
+        let nuevo = (videoIndex + 1) % videos.length;
+        cambiarVideo(nuevo);
+    });
+});
+
     actualizarCarrusel();
 });
