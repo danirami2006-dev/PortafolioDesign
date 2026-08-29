@@ -76,3 +76,113 @@ body {
     right: -35px;         /* Abraza el marco del video por la derecha */
     bottom: -30px;        /* Se desplaza hacia abajo */
 }
+
+/* ==========================================
+   SECCIÓN CONÓCEME
+   ========================================== */
+
+.seccion-conoceme {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contenedor-conoceme {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Columna Izquierda: Foto */
+.columna-foto-conoceme {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-designer {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Columna Derecha: Cuadro de texto */
+.columna-texto-conoceme {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-cuadro-texto {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen de fondo del cuadro */
+.imagen-cuadro-fondo {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.2));
+}
+
+/* Contenido escrito superpuesto sobre el cuadro */
+.contenido-texto-conoceme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 35px 40px; /* Margen interno para que el texto no toque los bordes del cuadro */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;      /* Color de letra blanco */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.contenido-texto-conoceme h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contenido-texto-conoceme p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Adaptación para pantallas pequeñas (Móviles/Tablets) */
+@media (max-width: 768px) {
+    .contenedor-conoceme {
+        flex-direction: column;
+    }
+    
+    .contenido-texto-conoceme {
+        padding: 20px 25px;
+    }
+
+    .contenido-texto-conoceme h2 {
+        font-size: 1.2rem;
+    }
+
+    .contenido-texto-conoceme p {
+        font-size: 0.85rem;
+    }
+}
