@@ -108,10 +108,10 @@ body {
 
 .foto-designer {
     width: 100%;
-    max-width: 420px;
+    max-width: 540px;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
     object-fit: cover;
 }
 
@@ -126,7 +126,7 @@ body {
 .contenedor-cuadro-texto {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +137,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.22));
 }
 
 /* Contenido escrito superpuesto sobre el cuadro */
@@ -147,43 +147,48 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 35px 40px; /* Margen interno para que el texto no toque los bordes del cuadro */
+    padding: 50px 60px 40px 65px; /* Margen interno para que el texto no toque los bordes del cuadro */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #ffffff;      /* Color de letra blanco */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 .contenido-texto-conoceme h2 {
-    font-size: 1.6rem;
-    margin-bottom: 12px;
+    font-size: 2rem;
+    margin-bottom: 14px;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing:0.5px;
 }
 
 .contenido-texto-conoceme p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 1.15rem;
+    line-height: 1.6;
     margin: 0;
 }
 
 /* Adaptación para pantallas pequeñas (Móviles/Tablets) */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .contenedor-conoceme {
         flex-direction: column;
+     gap: 25px;
     }
-    
+    .foto-designer,
+    .contenedor-cuadro-texto {
+        max-width: 100%;
+    }
     .contenido-texto-conoceme {
-        padding: 20px 25px;
+        padding: 30px 35px;
     }
 
     .contenido-texto-conoceme h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .contenido-texto-conoceme p {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
 }
