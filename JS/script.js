@@ -75,6 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+   document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. LÓGICA DE LUPA / ZOOM
+    // ==========================================
     function activarLupa(card, lens) {
         const img = card.querySelector('img');
         if (!img || !lens) return;
@@ -105,44 +110,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    btnPrev.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        actualizarCarrusel();
-    });
 
-    btnNext.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        actualizarCarrusel();
-    });
+    // ==========================================
+    // 2. CARRUSEL DE IMÁGENES / CARDS
+    // ==========================================
+    // NOTA: Asegúrate de tener estas variables o selectores definidos arriba en tu código principal
+    const btnImgPrev = document.getElementById('btnImgPrev'); // Cambia el ID según tu HTML
+    const btnImgNext = document.getElementById('btnImgNext'); // Cambia el ID según tu HTML
 
-    document.addEventListener('DOMContentLoaded', () => {
+    if (btnImgPrev && btnImgNext && typeof cards !== 'undefined') {
+        btnImgPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            actualizarCarrusel();
+        });
+
+        btnImgNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            actualizarCarrusel();
+        });
+
+        actualizarCarrusel();
+    }
+
+
+    // ==========================================
+    // 3. CARRUSEL DE VIDEOS
+    // ==========================================
     const videos = document.querySelectorAll('.video-item');
-    const btnPrev = document.getElementById('btnVideoPrev');
-    const btnNext = document.getElementById('btnVideoNext');
+    const btnVideoPrev = document.getElementById('btnVideoPrev');
+    const btnVideoNext = document.getElementById('btnVideoNext');
     let videoIndex = 0;
 
     function cambiarVideo(nuevoIndex) {
-        // Pausar el video actual
-        videos[videoIndex].pause();
-        videos[videoIndex].classList.remove('active');
+        if (videos.length === 0) return;
+
+        // Pausar y desactivar el video actual
+        if (videos[videoIndex]) {
+            videos[videoIndex].pause();
+            videos[videoIndex].classList.remove('active');
+        }
 
         // Actualizar índice
         videoIndex = nuevoIndex;
 
         // Activar el nuevo video
-        videos[videoIndex].classList.add('active');
+        if (videos[videoIndex]) {
+            videos[videoIndex].classList.add('active');
+        }
     }
 
-    btnPrev.addEventListener('click', () => {
-        let nuevo = (videoIndex - 1 + videos.length) % videos.length;
-        cambiarVideo(nuevo);
-    });
+    if (btnVideoPrev && btnVideoNext && videos.length > 0) {
+        btnVideoPrev.addEventListener('click', () => {
+            let nuevo = (videoIndex - 1 + videos.length) % videos.length;
+            cambiarVideo(nuevo);
+        });
 
-    btnNext.addEventListener('click', () => {
-        let nuevo = (videoIndex + 1) % videos.length;
-        cambiarVideo(nuevo);
-    });
-});
+        btnVideoNext.addEventListener('click', () => {
+            let nuevo = (videoIndex + 1) % videos.length;
+            cambiarVideo(nuevo);
+        });
+    }
 
-    actualizarCarrusel();
 });
