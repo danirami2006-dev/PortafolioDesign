@@ -29,3 +29,91 @@ if (v1 && v2) {
         v2.classList.add('video-oculto');
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = Array.from(document.querySelectorAll('.card-piezas'));
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    
+    let currentIndex = 3; // Inicia con fashion.png (posición 3) en el centro
+
+    function actualizarCarrusel() {
+        const total = cards.length;
+
+        cards.forEach((card, index) => {
+            // Limpiar clases anteriores
+            card.className = 'card-piezas';
+            
+            // Quitar lente de lupa previa si existía
+            const oldLens = card.querySelector('.lupa-lens');
+            if (oldLens) oldLens.remove();
+
+            // Calcular distancia relativa
+            let offset = index - currentIndex;
+            if (offset < -Math.floor(total / 2)) offset += total;
+            if (offset > Math.floor(total / 2)) offset -= total;
+
+            // Asignar clases de posición
+            if (offset === 0) {
+                card.classList.add('active');
+                // Añadir lente de lupa a la tarjeta activa
+                const lens = document.createElement('div');
+                lens.classList.add('lupa-lens');
+                card.appendChild(lens);
+                activarLupa(card, lens);
+            } else if (offset === -1) {
+                card.classList.add('prev');
+            } else if (offset === 1) {
+                card.classList.add('next');
+            } else if (offset === -2) {
+                card.classList.add('extra-left');
+            } else if (offset === 2) {
+                card.classList.add('extra-right');
+            } else {
+                card.classList.add('oculta');
+            }
+        });
+    }
+
+    function activarLupa(card, lens) {
+        const img = card.querySelector('img');
+        if (!img || !lens) return;
+
+        lens.style.backgroundImage = `url('${img.src}')`;
+
+        card.addEventListener('mousemove', (e) => {
+            lens.style.display = 'block';
+            const rect = card.getBoundingClientRect();
+
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+
+            const lensRadius = 65; // Mitad de 130px
+            x = Math.max(lensRadius, Math.min(x, rect.width - lensRadius));
+            y = Math.max(lensRadius, Math.min(y, rect.height - lensRadius));
+
+            lens.style.left = `${x - lensRadius}px`;
+            lens.style.top = `${y - lensRadius}px`;
+
+            const zoomLevel = 2.2;
+            lens.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+            lens.style.backgroundPosition = `-${(x * zoomLevel) - lensRadius}px -${(y * zoomLevel) - lensRadius}px`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            lens.style.display = 'none';
+        });
+    }
+
+    btnPrev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        actualizarCarrusel();
+    });
+
+    btnNext.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        actualizarCarrusel();
+    });
+
+    actualizarCarrusel();
+});
