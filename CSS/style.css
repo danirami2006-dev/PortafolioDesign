@@ -80,6 +80,9 @@ body {
 /* ==========================================
    SECCIÓN CONÓCEME
    ========================================== */
+/* ==========================================
+   SECCIÓN CONÓCEME
+   ========================================== */
 
 .seccion-conoceme {
     width: 100%;
@@ -95,7 +98,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 40px;
-    width: 100%
+    width: 100%;
 }
 
 /* Columna Izquierda: Foto */
@@ -115,47 +118,15 @@ body {
     object-fit: cover;
 }
 
-/* Columna Derecha: Cuadro de texto */
-/* Contenido de texto centrado y estilizado con Bebas Neue */
-.contenido-texto-conoceme {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 40px 50px;           /* Espaciado uniforme en los 4 bordes */
-    box-sizing: border-box;
+/* Columna Derecha: Cuadro de texto con fondo */
+.columna-texto-conoceme {
+    flex: 1;
+    position: relative; /* Indispensable para posicionar el texto superpuesto */
     display: flex;
-    flex-direction: column;
-    justify-content: center;      /* Centrado vertical */
-    align-items: center;          /* Centrado horizontal de los bloques */
-    text-align: center;           /* Alineación de texto centrada */
-    color: #ffffff;
-    font-family: 'Bebas Neue', sans-serif; /* Tipografía Bebas Neue */
-    letter-spacing: 1px;          /* Espaciado para mejorar legibilidad */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Título CONÓCEME */
-.contenido-texto-conoceme h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem;              /* Tamaño grande e impactante para Bebas Neue */
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    line-height: 1;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Párrafo descriptivo */
-.contenido-texto-conoceme p {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.55rem;           /* Tamaño más amplio para que Bebas Neue llene bien el espacio */
-    line-height: 1.25;            /* Interlineado ajustado para fuentes Display */
-    margin: 0;
-    letter-spacing: 1px;
-    color: #ffffff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
 /* Imagen de fondo del cuadro */
 .imagen-cuadro-fondo {
     width: 100%;
@@ -171,27 +142,39 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 50px 60px 40px 65px; /* Margen interno para que el texto no toque los bordes del cuadro */
+    padding: 10% 12%;               /* Espaciado porcentual para no deformar el texto */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: #ffffff;      /* Color de letra blanco */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
+    justify-content: center;        /* Centrado vertical */
+    align-items: center;            /* Centrado horizontal */
+    text-align: center;             /* Alineación del texto centrada */
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
+/* Título CONÓCEME */
 .contenido-texto-conoceme h2 {
-    font-size: 2rem;
-    margin-bottom: 14px;
-    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: #ffffff;
     text-transform: uppercase;
-    letter-spacing:0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Párrafo descriptivo */
 .contenido-texto-conoceme p {
-    font-size: 1.15rem;
-    line-height: 1.6;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.3;
     margin: 0;
+    letter-spacing: 1.2px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Adaptación para pantallas pequeñas (Móviles/Tablets) */
