@@ -192,3 +192,187 @@ body {
         font-size: 0.95rem;
     }
 }
+
+/* ==========================================
+   SECCIÓN PIEZAS GRÁFICAS
+   ========================================== */
+
+.seccion-piezas {
+    width: 100%;
+    max-width: 1300px;
+    margin: 50px auto;
+    position: relative;
+    user-select: none;
+}
+
+.header-piezas {
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.titulo-piezas {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+/* CARRUSEL Y BOTONES DE NAVEGACIÓN */
+.carrusel-contenedor {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-carrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 60;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-carrusel:hover {
+    transform: translateY(-50%) scale(1.12);
+    filter: drop-shadow(0 0 8px rgba(255, 66, 157, 0.6));
+}
+
+.btn-carrusel img {
+    width: 50px;
+    height: auto;
+}
+
+.btn-prev { left: 15px; }
+.btn-next { right: 15px; }
+
+/* PISTA Y POSICIONAMIENTO 3D */
+.carrusel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo base para las 10 tarjetas de imágenes */
+.card-piezas {
+    position: absolute;
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: rgba(18, 18, 18, 0.35); /* Fondo sutil para encuadrar piezas horizontales */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-piezas img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Garantiza que las 10 piezas (horizontales y verticales) se vean completas */
+    border-radius: 14px;
+    pointer-events: none;
+}
+
+/* JERARQUÍA DE POSICIONES VISIBLES */
+
+/* Imagen Central (Activa con Lupa) */
+.card-piezas.active {
+    width: 380px;
+    height: 480px;
+    z-index: 30;
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    cursor: crosshair;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Laterales Cercanos */
+.card-piezas.prev {
+    width: 300px;
+    height: 400px;
+    z-index: 20;
+    transform: translateX(-240px) scale(0.85);
+    opacity: 0.7;
+}
+
+.card-piezas.next {
+    width: 300px;
+    height: 400px;
+    z-index: 20;
+    transform: translateX(240px) scale(0.85);
+    opacity: 0.7;
+}
+
+/* Laterales Lejanos */
+.card-piezas.extra-left {
+    width: 250px;
+    height: 340px;
+    z-index: 10;
+    transform: translateX(-410px) scale(0.7);
+    opacity: 0.35;
+}
+
+.card-piezas.extra-right {
+    width: 250px;
+    height: 340px;
+    z-index: 10;
+    transform: translateX(410px) scale(0.7);
+    opacity: 0.35;
+}
+
+/* Imágenes fuera de vista (las 5 restantes) */
+.card-piezas.oculta {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+    z-index: 0;
+}
+
+/* LUPA INTERACTIVA EN LA IMAGEN CENTRAL */
+.lupa-lens {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 3px solid #ff429d; /* Borde rosa neón */
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    background-repeat: no-repeat;
+    z-index: 50;
+}
+
+/* ADAPTACIÓN RESPONSIVA (MÓVILES Y TABLETS) */
+@media (max-width: 850px) {
+    .carrusel-contenedor {
+        height: 420px;
+    }
+
+    .card-piezas.active {
+        width: 290px;
+        height: 390px;
+    }
+
+    .card-piezas.prev {
+        transform: translateX(-150px) scale(0.75);
+        opacity: 0.4;
+    }
+
+    .card-piezas.next {
+        transform: translateX(150px) scale(0.75);
+        opacity: 0.4;
+    }
+
+    .card-piezas.extra-left,
+    .card-piezas.extra-right {
+        display: none; /* Oculta extremos lejanos en pantallas pequeñas */
+    }
+}
